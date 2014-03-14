@@ -5,6 +5,7 @@
 #include "accelerometer.h"
 #include "pedometer.h"
 
+
 using namespace std;
 using namespace miosix;
 
@@ -39,10 +40,7 @@ int most_active = -1;           // indicates the most active axis
 int buffer_filling = 0;         // used for the first three steps of the digital filtering
 int noise = 0;                  // quantity of noise to be overcame for filtering purposes
 
-pthread_mutex_t mutex=PTHREAD_MUTEX_INITIALIZER;
-
 Accelerometer accelerometer;
-
 
 void pedometer_init() {
     
@@ -180,17 +178,15 @@ void step_recognition() {
     if(0 <= most_active && most_active <= 2) {
         if(old[0][most_active] > threshold[most_active] &&
                 threshold[most_active] > result[most_active]) {                 // recognize a negative slope threshold cross
-            if (MIN_INTERVAL <= interval && interval <= MAX_INTERVAL) {     	// ignore steps faster than one every 200s and slower 
-                        pthread_mutex_lock(&mutex);                             // of one every 2s
-                        steps++;
-                        pthread_mutex_unlock(&mutex);                           
+            if(MIN_INTERVAL <= interval && interval <= MAX_INTERVAL) {     	// ignore steps faster than one every 200s and slower 
+                steps++;                                                        // of one every 2s
             }
             interval = 0;
         }
     }
 }
 
-void *main1(void *arg) {
+void main1() {
 
 pedometer_init();
     
@@ -212,37 +208,39 @@ pedometer_init();
         interval++;
         samples++;
        
- /*       printf("X: %i\n", result[X]);
+ /*     printf("X: %i\n", result[X]);
         printf("X_T: %i\n", threshold[X]);
         printf("Y: %i\n", result[Y]);
         printf("Y_T: %i\n", threshold[Y]);
         printf("Z: %i\n", result[Z]);
         printf("Z_T: %i\n\n", threshold[Z]); 
-        printf("S: %d\n\n\n", steps); 
   */
+        printf("S: %d\n", steps);
         
-        
-        usleep(1/FREQ * 1000000);          
+        Thread::sleep(1/FREQ * 1000);          
     }
 
 }
 
-
 Pedometer::Pedometer() {
+    
+}
+
+Pedometer* Pedometer::pPedometer = NULL;
+
+Pedometer* Pedometer::get_instance() {
+    if(pPedometer == NULL) {
+        pPedometer = new Pedometer();
+    }
+    return pPedometer;
 }
 
 
-void Pedometer::start()
-{           
-    pthread_t t;
-    pthread_create(&t,NULL,&main1,NULL);
-    printf("FINISH \n\n");
+
+void Pedometer::start() {           
+    main1();
 }
 
-int Pedometer::getSteps() {
-    pthread_mutex_lock(&mutex);
-    int val = steps;
-    pthread_mutex_unlock(&mutex); 
-    return val;
+int Pedometer::getSteps() { 
+    return steps;
 }
-             

@@ -3,9 +3,14 @@
 
 class Pedometer
 {
+    
+private:
+        Pedometer();
+        static Pedometer* pPedometer;
+    
 public:
-	Pedometer();
-        
+    static Pedometer* get_instance();
+    
         void start();
         
         int getSteps();

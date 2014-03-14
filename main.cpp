@@ -8,15 +8,24 @@
 using namespace std;
 using namespace miosix;
 
-Pedometer pedometer;
+Pedometer* pedometer;
+
+void *startPedometer(void *arg) {
+    pedometer->start();
+}
 
 int main() {
-   pedometer.start();
+   pedometer = Pedometer::get_instance();
    
-   for(;;) {
-       int prova = pedometer.getSteps();
-       printf("STEPS = %d \n\n\n", prova);
+    pthread_t pedometerThread;
+    pthread_create(&pedometerThread,NULL,&startPedometer,NULL);
+   
+   /*for(;;) {
+       int steps = pedometer->getSteps();
+       printf("\n\nSTEPS = %d \n\n\n", steps);
        usleep(1000000);
-   }
+   }*/
+    
+   pthread_join(pedometerThread,NULL);
    return 0;
 }
