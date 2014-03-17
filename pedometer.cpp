@@ -39,67 +39,10 @@ int most_active = -1;           // indicates the most active axis
 int buffer_filling = 0;         // used for the first three steps of the digital filtering
 int noise = 0;                  // quantity of noise to be overcame for filtering purposes
 
-LIS302DL lis302dl;
+Lis302dl lis302dl;
 
 Pedometer* Pedometer::pPedometer = NULL;
 
-/** 
- * PUBLIC METHODS
- */
-
-/**
- * Singleton factor method
- */
-Pedometer* Pedometer::get_instance() {
-    if(pPedometer == NULL) {
-        pPedometer = new Pedometer();
-    }
-    return pPedometer;
-}  
-
-void Pedometer::start()
-{           
- 
- init();
-    
-    for(;;){
-        
-        digital_filtering();
-        min_max_election();
-        
-        if(samples == 10) {
-            threshold_update();
-        }
-        
-        shift_register_update();
-        get_accelerations();
-        most_active_axis_detection();
-        step_recognition();
-        
-        interval++;
-        samples++;
-        
-        printf("X: %i\n", result[X]);
-        printf("X_T: %i\n", threshold[X]);
-        printf("Y: %i\n", result[Y]);
-        printf("Y_T: %i\n", threshold[Y]);
-        printf("Z: %i\n", result[Z]);
-        printf("Z_T: %i\n\n", threshold[Z]);
-        printf("S: %d\n\n\n", steps); 
-        
-        usleep(1/FREQ * 1000000);    
-    }
-  
-}
-
-int Pedometer::getSteps() {
-    return steps;
-}
-
-void Pedometer::setHeight(int height) {
-    
-}
-             
 /**
  * PRIVATE METHODS 
  */
@@ -255,3 +198,60 @@ void step_recognition() {
         }
     }
 }
+
+/** 
+ * PUBLIC METHODS
+ */
+
+/**
+ * Singleton factor method
+ */
+Pedometer* Pedometer::get_instance() {
+    if(pPedometer == NULL) {
+        pPedometer = new Pedometer();
+    }
+    return pPedometer;
+}  
+
+void Pedometer::start()
+{           
+ 
+ init();
+    
+    for(;;){
+        
+        digital_filtering();
+        min_max_election();
+        
+        if(samples == 10) {
+            threshold_update();
+        }
+        
+        shift_register_update();
+        get_accelerations();
+        most_active_axis_detection();
+        step_recognition();
+        
+        interval++;
+        samples++;
+        
+        /*printf("X: %i\n", result[X]);
+        printf("X_T: %i\n", threshold[X]);
+        printf("Y: %i\n", result[Y]);
+        printf("Y_T: %i\n", threshold[Y]);
+        printf("Z: %i\n", result[Z]);
+        printf("Z_T: %i\n\n", threshold[Z]);
+        printf("S: %d\n\n\n", steps);
+         */
+        
+        usleep(1/FREQ * 1000000 + 64*520);    
+    }
+  
+}
+
+int Pedometer::getSteps() {
+    return steps;
+}
+
+
+             
