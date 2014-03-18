@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configurationDescriptor version="89">
+<configurationDescriptor version="90">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
-    <df root=".." name="miosix_np_2">
+    <df root=".." name="0">
+      <df name="7seg">
+        <in>i2c.cpp</in>
+        <in>main.cpp</in>
+        <in>stm32f4xx.h</in>
+        <in>stm32f4xx_i2c.c</in>
+        <in>stm32f4xx_i2c.h</in>
+      </df>
       <df name="miosix">
         <df name="arch">
           <df name="arm7_lpc2000">
@@ -319,15 +326,6 @@
             <in>devfs.h</in>
           </df>
           <df name="fat32">
-            <df name="option">
-              <in>cc932.c</in>
-              <in>cc936.c</in>
-              <in>cc949.c</in>
-              <in>cc950.c</in>
-              <in>ccsbcs.c</in>
-              <in>syscall.c</in>
-              <in>unicode.c</in>
-            </df>
             <in>diskio.cpp</in>
             <in>diskio.h</in>
             <in>fat32.cpp</in>
@@ -419,7 +417,15 @@
       </df>
       <df name="miosix_np_2">
       </df>
-      <in>main.cpp</in>
+      <df name="pedometer">
+        <in>lis302dl.cpp</in>
+        <in>lis302dl.h</in>
+        <in>main.cpp</in>
+        <in>pedometer.cpp</in>
+        <in>pedometer.h</in>
+        <in>stats.cpp</in>
+        <in>stats.h</in>
+      </df>
     </df>
   </logicalFolder>
   <projectmakefile>miosix_np_2-Makefile.mk</projectmakefile>

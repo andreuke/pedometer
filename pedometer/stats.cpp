@@ -4,13 +4,19 @@
  * 
  * Created on March 15, 2014, 6:10 PM
  */
-
+#include <stdlib.h>
+#include <cstdio>
+#include "miosix.h"
 #include "stats.h"
+#include "pedometer.h"
 
+using namespace std;
+using namespace miosix;
 
-int height;
-float distance, calories, speed;
+float height;
+float dist, calories, speed;
 int old_steps = 0;
+
 
 float computeStride(int steps) {
     
@@ -61,12 +67,12 @@ Stats& Stats::get_instance() {
     return instance;
 }
 
-void Stats::setHeight(int h) {
+void Stats::setHeight(float h) {
     height = h;
 }
 
 float Stats::getDistance() {
-    return distance;
+    return dist;
 }    
 
 float Stats::getCalories() {
@@ -78,14 +84,22 @@ float Stats::getSpeed() {
 }  
 
 void Stats::start() {
-    int steps = Pedometer::get_instance()->getSteps() - old_steps;
-    float stride = computeStride(steps);
-    
-    distance += stride * steps;
-    speed = stride * steps / 2;
-    
-    calories += computeCalories(speed);
+    for(;;) {
+        int new_steps = Pedometer::get_instance()->getSteps();
+        int steps =  new_steps - old_steps;
+        float stride = computeStride(steps);
 
-    
-    usleep(2000000);
+        dist += stride * steps;
+        speed = stride * steps * 3600/ 2000;
+
+        calories += computeCalories(speed);
+
+        printf("CAL = %f ", calories);
+        printf("SPEED = %f ", speed);
+        printf("DIST = %f ", dist);
+        
+        old_steps = new_steps;
+
+        usleep(2000000);
+    }
 }

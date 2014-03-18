@@ -14,7 +14,13 @@ SUBDIRS := miosix
 ## List here your source files (both .s, .c and .cpp)
 ##
 SRC :=                                  \
-main.cpp
+pedometer/main.cpp			\
+pedometer/pedometer.cpp			\
+pedometer/lis302dl.cpp			\
+pedometer/stats.cpp			\
+		
+
+
 
 ##
 ## List here additional static libraries with relative path
@@ -24,7 +30,8 @@ LIBS :=
 ##
 ## List here additional include directories (in the form -Iinclude_dir)
 ##
-INCLUDE_DIRS :=
+INCLUDE_DIRS := -I/home/user/Desktop/miosix-kernel/miosix/arch/cortexM4_stm32f4/common/CMSIS/ \
+	-I/home/user/Desktop/miosix-kernel/STM32F4-Discovery_FW_V1.1.0/Libraries/STM32F4xx_StdPeriph_Driver/inc/
 
 ##############################################################################
 ## You should not need to modify anything below                             ##

@@ -12,10 +12,11 @@ class Stats {
     
 public:
     static Stats& get_instance();
-    void setHeight(int height);
+    void setHeight(float height);
     float getDistance();
     float getCalories();
     float getSpeed();
+    void start();
 
 private:
     Stats();

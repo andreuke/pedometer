@@ -5,8 +5,18 @@
     </code-assistance-data>
     <data xmlns="http://www.netbeans.org/ns/make-project-private/1">
         <activeConfTypeElem>0</activeConfTypeElem>
-        <activeConfIndexElem>2</activeConfIndexElem>
+        <activeConfIndexElem>7</activeConfIndexElem>
     </data>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/user/Desktop/rtos2013/rtos2013/miosix/interfaces/gpio.h</file>
+            <file>file:/home/user/Desktop/rtos2013/rtos2013/pedometer/lis302dl.cpp</file>
+            <file>file:/home/user/Desktop/rtos2013/rtos2013/7seg/i2c.cpp</file>
+            <file>file:/home/user/Desktop/rtos2013/rtos2013/miosix/miosix.h</file>
+            <file>file:/home/user/Desktop/rtos2013/rtos2013/Makefile</file>
+            <file>file:/home/user/Desktop/rtos2013/rtos2013/miosix/arch/cortexM3_stm32/common/interfaces-impl/gpio_impl.h</file>
+        </group>
+    </open-files>
 </project-private>
