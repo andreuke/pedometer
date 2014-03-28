@@ -1,3 +1,9 @@
+/* 
+ * File:   pedometer.cpp
+ * Author: Andrea Piscitello, Giada Tacconelli
+ * 
+ * Created on March 15, 2014, 6:10 PM
+ */
 #include <stdlib.h>
 #include <cstdio>
 #include "miosix.h"
@@ -43,16 +49,18 @@ Lis302dl lis302dl;
 
 Pedometer* Pedometer::pPedometer = NULL;
 
-/**
- * PRIVATE METHODS 
- */
+/******** PRIVATE METHODS ********/
 
-/*
+/**
  * Private constructor
  */
 Pedometer::Pedometer() {   
 }
 
+/**
+ * \brief Initialize all the values used in the program.
+ * \return Nothing
+ */
 void init() {
     
     for(int i = 0; i < 3; i++) {
@@ -70,7 +78,10 @@ void init() {
     }
 }
 
-// Mobile mean on FITER_PRECISION sample
+/**
+* \brief Mobile mean on FITER_PRECISION sample
+* \return Nothing
+*/
 void digital_filtering() {
     
     if(buffer_filling < FILTER_SIZE) {                  // Manage the first three iterations 
@@ -86,7 +97,10 @@ void digital_filtering() {
     }
 }
 
-// Manage the election of max and min for the next 50 samples
+/**
+* \brief Manage the election of max and min for the next 50 samples
+* \return Nothing
+*/
 void min_max_election() {
     for(int i = 0; i < 3; i++) {
             
@@ -99,7 +113,10 @@ void min_max_election() {
         }
 }
 
-// Define the precision to be overcame in order to ignore High-Frequency Noise
+/**
+* \brief Define the precision to be overcame in order to ignore High-Frequency Noise
+* \return Nothing
+*/
 void dinamic_precision_setting() {
     int current = 0;
     
@@ -114,7 +131,10 @@ void dinamic_precision_setting() {
 }
 
 
-// Manage the update of max, min and threshold
+/**
+* \brief Manage the update of max, min and threshold
+* \return Nothing
+*/
 void threshold_update() {
     samples = 0;
     
@@ -132,7 +152,10 @@ void threshold_update() {
     }
 }
 
-// Updates the shift register used for digital filter
+/**
+* \brief Updates the shift register used for digital filter
+* \return Nothing
+*/
 void shift_register_update() {
     for(int i = 0; i < 3; i++) {
         old[2][i] = old[1][i];
@@ -141,7 +164,10 @@ void shift_register_update() {
     }
 }
 
-// Acquires the X,Y,Z axis values from accelerometer
+/**
+* \brief Acquires the X,Y,Z axis values from accelerometer Lis302dl
+* \return Nothing
+*/
 void get_accelerations() {
     int temp[3];
     temp[X] = lis302dl.getX();
@@ -157,7 +183,10 @@ void get_accelerations() {
     }
 }
 
-// Recognize the biggest difference of acceleration among the three axis
+/**
+* \brief Recognize the biggest difference of acceleration among the three axis
+* \return Nothing
+*/
 void most_active_axis_detection() {
         if(active[X] &&
                 abs(result[X] - old[0][X]) >= abs(result[Y] - old[0][Y]) &&
@@ -184,7 +213,10 @@ void most_active_axis_detection() {
         
 } 
 
-// Implements the step recognition logic
+/**
+* \brief Implements the step recognition logic
+* \return Nothing
+*/
 void step_recognition() {
     if(0 <= most_active && most_active <= 2) {
         if(old[0][most_active] > threshold[most_active] &&
@@ -199,9 +231,8 @@ void step_recognition() {
     }
 }
 
-/** 
- * PUBLIC METHODS
- */
+/******** PUBLIC METHODS ********/
+
 
 /**
  * Singleton factor method
@@ -213,6 +244,10 @@ Pedometer* Pedometer::get_instance() {
     return pPedometer;
 }  
 
+/**
+* \brief Start the pedometer module. It includes all the phases described in the other methods.
+* \return Nothing
+*/
 void Pedometer::start()
 {           
  
@@ -249,6 +284,9 @@ void Pedometer::start()
   
 }
 
+/**
+* \return steps, the number of steps
+*/
 int Pedometer::getSteps() {
     return steps;
 }

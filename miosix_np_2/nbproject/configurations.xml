@@ -2,6 +2,9 @@
 <configurationDescriptor version="90">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <df root=".." name="0">
+      <df name="_miosix_i2c">
+        <in>main.cpp</in>
+      </df>
       <df name="miosix">
         <df name="arch">
           <df name="arm7_lpc2000">
@@ -468,6 +471,8 @@
           </ccTool>
         </makeTool>
       </makefileType>
+      <item path="../_miosix_i2c/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="../miosix/arch/arm7_lpc2000/common/arch_settings.h"
             ex="false"
             tool="3"
@@ -1580,6 +1585,8 @@
           </ccTool>
         </makeTool>
       </makefileType>
+      <item path="../_miosix_i2c/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="../miosix/arch/arm7_lpc2000/common/arch_settings.h"
             ex="false"
             tool="3"
@@ -2694,6 +2701,8 @@
           </ccTool>
         </makeTool>
       </makefileType>
+      <item path="../_miosix_i2c/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="../miosix/arch/arm7_lpc2000/common/arch_settings.h"
             ex="false"
             tool="3"
@@ -3813,6 +3822,8 @@
           </ccTool>
         </makeTool>
       </makefileType>
+      <item path="../_miosix_i2c/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="../miosix/arch/arm7_lpc2000/common/arch_settings.h"
             ex="false"
             tool="3"
@@ -4927,6 +4938,8 @@
           </ccTool>
         </makeTool>
       </makefileType>
+      <item path="../_miosix_i2c/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="../miosix/arch/arm7_lpc2000/common/arch_settings.h"
             ex="false"
             tool="3"
@@ -6041,6 +6054,8 @@
           </ccTool>
         </makeTool>
       </makefileType>
+      <item path="../_miosix_i2c/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="../miosix/arch/arm7_lpc2000/common/arch_settings.h"
             ex="false"
             tool="3"
@@ -7155,6 +7170,8 @@
           </ccTool>
         </makeTool>
       </makefileType>
+      <item path="../_miosix_i2c/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="../miosix/arch/arm7_lpc2000/common/arch_settings.h"
             ex="false"
             tool="3"
@@ -8267,6 +8284,8 @@
           </ccTool>
         </makeTool>
       </makefileType>
+      <item path="../_miosix_i2c/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="../miosix/arch/arm7_lpc2000/common/arch_settings.h"
             ex="false"
             tool="3"
@@ -9379,6 +9398,8 @@
           </ccTool>
         </makeTool>
       </makefileType>
+      <item path="../_miosix_i2c/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="../miosix/arch/arm7_lpc2000/common/arch_settings.h"
             ex="false"
             tool="3"
@@ -10491,6 +10512,8 @@
           </ccTool>
         </makeTool>
       </makefileType>
+      <item path="../_miosix_i2c/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="../miosix/arch/arm7_lpc2000/common/arch_settings.h"
             ex="false"
             tool="3"
@@ -11603,6 +11626,8 @@
           </ccTool>
         </makeTool>
       </makefileType>
+      <item path="../_miosix_i2c/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="../miosix/arch/arm7_lpc2000/common/arch_settings.h"
             ex="false"
             tool="3"
@@ -12715,6 +12740,8 @@
           </ccTool>
         </makeTool>
       </makefileType>
+      <item path="../_miosix_i2c/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="../miosix/arch/arm7_lpc2000/common/arch_settings.h"
             ex="false"
             tool="3"
@@ -13827,6 +13854,8 @@
           </ccTool>
         </makeTool>
       </makefileType>
+      <item path="../_miosix_i2c/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="../miosix/arch/arm7_lpc2000/common/arch_settings.h"
             ex="false"
             tool="3"

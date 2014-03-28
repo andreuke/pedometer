@@ -1,6 +1,6 @@
 /* 
  * File:   stats.cpp
- * Author: user
+ * Author: Andrea Piscitello, Giada Tacconelli
  * 
  * Created on March 15, 2014, 6:10 PM
  */
@@ -18,6 +18,11 @@ float dist, calories, speed;
 int old_steps = 0;
 
 
+/**
+* \brief Computes the stride depending on the number of steps carried out (in the last 2 seconds) and the user’s height
+* \param steps
+* \return height*k which represents the strides
+*/
 float computeStride(int steps) {
     
     switch(steps) {
@@ -39,6 +44,11 @@ float computeStride(int steps) {
         }
 }
 
+/**
+* \brief Computes the number of calories
+* \param speed
+* \return cal, the number of calories burned in the last 2 seconds.
+*/
 int computeCalories(int speed) {
     if(speed < 1)
         return 0;
@@ -62,22 +72,27 @@ Stats::Stats() {
     
 }
 
+
 Stats& Stats::get_instance() {
     static Stats instance;
     return instance;
 }
 
+
 void Stats::setHeight(float h) {
     height = h;
 }
+
 
 float Stats::getDistance() {
     return dist;
 }    
 
+
 float Stats::getCalories() {
     return calories;
 }    
+
 
 float Stats::getSpeed() {
     return speed;
@@ -93,10 +108,6 @@ void Stats::start() {
         speed = stride * steps * 3600/ 2000;
 
         calories += computeCalories(speed);
-
-        printf("CAL = %f ", calories);
-        printf("SPEED = %f ", speed);
-        printf("DIST = %f ", dist);
         
         old_steps = new_steps;
 

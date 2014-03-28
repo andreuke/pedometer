@@ -4,10 +4,83 @@
     <df root=".." name="0">
       <df name="7seg">
         <in>i2c.cpp</in>
-        <in>main.cpp</in>
         <in>stm32f4xx.h</in>
         <in>stm32f4xx_i2c.c</in>
         <in>stm32f4xx_i2c.h</in>
+      </df>
+      <df name="_miosix_i2c">
+        <in>main.cpp</in>
+        <in>stm32f2_f4_i2c.cpp</in>
+        <in>stm32f2_f4_i2c.h</in>
+      </df>
+      <df name="_new_i2c">
+        <df name="STM32F4xx_StdPeriph_Driver">
+          <df name="inc">
+            <in>misc.h</in>
+            <in>stm32f4xx_adc.h</in>
+            <in>stm32f4xx_can.h</in>
+            <in>stm32f4xx_crc.h</in>
+            <in>stm32f4xx_cryp.h</in>
+            <in>stm32f4xx_dac.h</in>
+            <in>stm32f4xx_dbgmcu.h</in>
+            <in>stm32f4xx_dcmi.h</in>
+            <in>stm32f4xx_dma.h</in>
+            <in>stm32f4xx_exti.h</in>
+            <in>stm32f4xx_flash.h</in>
+            <in>stm32f4xx_fsmc.h</in>
+            <in>stm32f4xx_gpio.h</in>
+            <in>stm32f4xx_hash.h</in>
+            <in>stm32f4xx_i2c.h</in>
+            <in>stm32f4xx_iwdg.h</in>
+            <in>stm32f4xx_pwr.h</in>
+            <in>stm32f4xx_rcc.h</in>
+            <in>stm32f4xx_rng.h</in>
+            <in>stm32f4xx_rtc.h</in>
+            <in>stm32f4xx_sdio.h</in>
+            <in>stm32f4xx_spi.h</in>
+            <in>stm32f4xx_syscfg.h</in>
+            <in>stm32f4xx_tim.h</in>
+            <in>stm32f4xx_usart.h</in>
+            <in>stm32f4xx_wwdg.h</in>
+          </df>
+          <df name="src">
+            <in>misc.c</in>
+            <in>stm32f4xx_adc.c</in>
+            <in>stm32f4xx_can.c</in>
+            <in>stm32f4xx_crc.c</in>
+            <in>stm32f4xx_cryp.c</in>
+            <in>stm32f4xx_cryp_aes.c</in>
+            <in>stm32f4xx_cryp_des.c</in>
+            <in>stm32f4xx_cryp_tdes.c</in>
+            <in>stm32f4xx_dac.c</in>
+            <in>stm32f4xx_dbgmcu.c</in>
+            <in>stm32f4xx_dcmi.c</in>
+            <in>stm32f4xx_dma.c</in>
+            <in>stm32f4xx_exti.c</in>
+            <in>stm32f4xx_flash.c</in>
+            <in>stm32f4xx_fsmc.c</in>
+            <in>stm32f4xx_gpio.c</in>
+            <in>stm32f4xx_hash.c</in>
+            <in>stm32f4xx_hash_md5.c</in>
+            <in>stm32f4xx_hash_sha1.c</in>
+            <in>stm32f4xx_i2c.c</in>
+            <in>stm32f4xx_iwdg.c</in>
+            <in>stm32f4xx_pwr.c</in>
+            <in>stm32f4xx_rcc.c</in>
+            <in>stm32f4xx_rng.c</in>
+            <in>stm32f4xx_rtc.c</in>
+            <in>stm32f4xx_sdio.c</in>
+            <in>stm32f4xx_spi.c</in>
+            <in>stm32f4xx_syscfg.c</in>
+            <in>stm32f4xx_tim.c</in>
+            <in>stm32f4xx_usart.c</in>
+            <in>stm32f4xx_wwdg.c</in>
+          </df>
+        </df>
+        <in>main.c</in>
+      </df>
+      <df name="_soft_i2c">
+        <in>soft_i2c.cpp</in>
       </df>
       <df name="miosix">
         <df name="arch">

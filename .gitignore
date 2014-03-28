@@ -12,3 +12,7 @@ main.map
 # Exclude Mac OS X temporary
 ._*
 .DS_Store
+/7seg/
+/_soft_i2c/
+/_new_i2c/
+/_miosix_i2c/

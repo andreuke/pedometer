@@ -1,3 +1,9 @@
+/* 
+ * File:   lis302dl.cpp
+ * Author: Andrea Piscitello, Giada Tacconelli
+ * 
+ * Created on March 15, 2014, 6:10 PM
+ */
 #include <stdlib.h>
 #include <cstdio>
 #include "miosix.h"
@@ -18,7 +24,9 @@ typedef Gpio<GPIOE_BASE,3>  SPI_CS;
 volatile int8_t x, y, z;
 volatile uint8_t dummy;
 
-
+/**
+ * \brief Initialize the SPI bus and lis302dl accelerometer.
+ */
 void spi_init() {
     RCC->APB2ENR |= RCC_APB2ENR_SPI1EN;
             RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN | RCC_AHB1ENR_GPIOEEN;
@@ -61,6 +69,10 @@ Lis302dl::Lis302dl() {
 	spi_init();
 }
 
+/**
+ * \brief Return the value read on the X axis
+ * \return X, the value read on the X axis.
+ */
 int8_t Lis302dl::getX() {
             SPI_CS::low();
             SPI1->DR = 0x80 | 0x29;
@@ -75,7 +87,10 @@ int8_t Lis302dl::getX() {
             SPI_CS::high();
             return x;
             }
-            
+/**
+ * \brief Return the value read on the Y axis
+ * \return Y, the value read on the Y axis.
+ */            
 int8_t Lis302dl::getY() {
             SPI_CS::low();
             SPI1->DR = 0x80 | 0x2B;
@@ -90,7 +105,11 @@ int8_t Lis302dl::getY() {
             SPI_CS::high();  
             return y;  
             }    
-            
+
+/**
+ * \brief Return the value read on the Z axis
+ * \return Z, the value read on the Z axis.
+ */
 int8_t Lis302dl::getZ() {            
             SPI_CS::low();
             SPI1->DR = 0x80 | 0x2D;
