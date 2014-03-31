@@ -12,11 +12,11 @@ SUBDIRS := miosix
 
 ##
 ## List here your source files (both .s, .c and .cpp)
-##
-SRC :=  pedometer/main.cpp			\
-pedometer/pedometer.cpp			\
-pedometer/lis302dl.cpp			\
-pedometer/stats.cpp			\
+#
+SRC :=	pedometer/main.cpp			\
+	pedometer/pedometer.cpp			\
+	pedometer/lis302dl.cpp			\
+	pedometer/stats.cpp			\
 		
 
 

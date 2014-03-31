@@ -270,16 +270,15 @@ void Pedometer::start()
         interval++;
         samples++;
         
-        /*printf("X: %i\n", result[X]);
+        printf("X: %i\n", result[X]);
         printf("X_T: %i\n", threshold[X]);
         printf("Y: %i\n", result[Y]);
         printf("Y_T: %i\n", threshold[Y]);
         printf("Z: %i\n", result[Z]);
         printf("Z_T: %i\n\n", threshold[Z]);
         printf("S: %d\n\n\n", steps);
-         */
         
-        usleep(1/FREQ * 1000000 + 64*520);    
+        usleep(1/FREQ * 1000000 /*+ 64*520*/);    
     }
   
 }
